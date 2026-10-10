@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fin de la Pobreza | Donar es Amar</title>
+    <!-- Fuentes elegantes y modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #fdfbf7;
+            --color-text: #2d3436;
+            --color-primary: #e17055;
+            --color-secondary: #00cec9;
+            --color-accent: #fdcb6e;
+            --color-card: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Utilidad de contenedor */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Hero Section - Elegante y emotivo */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(253, 251, 247, 0.9) 0%, rgba(253, 251, 247, 0.4) 100%), 
+                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
+            padding: 4rem 1rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, transparent, var(--color-bg));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .tag-ods {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(225, 112, 85, 0.3);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: #2d3436;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--color-primary);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #636e72;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+
+        .section-header .line {
+            height: 3px;
+            width: 80px;
+            background: var(--color-secondary);
+            margin: 0 auto;
+            border-radius: 3px;
+        }
+
+        /* Grid de Solución */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--color-card);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: var(--color-secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.08);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        /* Modelo de Negocio - Estilo Canvas Moderno */
+        .business-canvas {
+            background: var(--color-card);
+            border-radius: 30px;
+            padding: 4rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .canvas-block {
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .canvas-block h3 {
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .canvas-block ul {
+            list-style: none;
+        }
+
+        .canvas-block li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #636e72;
+        }
+
+        .canvas-block li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        .highlight-amount {
+            background: rgba(132, 133, 134, 0.1); /* Fondo sutil acorde al nuevo color */
+            color: #848586; /* Nuevo color solicitado */
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        /* Equipo */
+        .team-section {
+            background: #2d3436;
+            color: white;
+            border-radius: 40px;
+            padding: 6rem 3rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .team-section .section-header h2 {
+            color: white;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            background: white;
+            color: #2d3436;
+            transform: scale(1.05);
+        }
+
+        /* CTA */
+        .cta-wrapper {
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            text-decoration: none;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px rgba(225, 112, 85, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(225, 112, 85, 0.4);
+            background: #d63031;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .business-canvas { grid-template-columns: 1fr; padding: 2rem; }
+            .hero { padding-top: 6rem; }
+            section { padding: 4rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content wrapper">
+            <div class="tag-ods">ODS #1</div>
+            <h1>Poniendo <span>fin</span> a la pobreza, una prenda a la vez.</h1>
+            <p>Conectamos corazones solidarios con quienes más lo necesitan a través de tecnología web, reciclaje y acción comunitaria. Un proyecto de Donar es Amar.</p>
+            <a href="#unete" class="btn-main">Descubre Cómo Ayudar</a>
+        </div>
+    </header>
+
+    <main class="wrapper">
+        
+        <!-- Solución -->
+        <section id="solucion">
+            <div class="section-header">
+                <h2>Nuestro Ecosistema Solidario</h2>
+                <div class="line"></div>
+                <p style="margin-top: 1rem; color: #636e72; font-size: 1.1rem;">Una solución integral diseñada para facilitar la donación y maximizar el impacto social.</p>
+            </div>
+            
+            <div class="solution-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Plataforma Web & QR</h3>
+                    <p>Un portal web interactivo donde puedes registrar tus donativos en segundos escaneando códigos QR.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♻️</div>
+                    <h3>Clasificación Inteligente</h3>
+                    <p>Reciclamos y separamos cada prenda por <strong>#Color, #Talla y #Forma</strong> para dignificar la entrega.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Logística Municipal</h3>
+                    <p>Alianzas con el Ayuntamiento y una red de voluntarios para la recolección a domicilio y distribución segura.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3>Incentivos</h3>
+                    <p>Tu ayuda tiene recompensa. Recibe cupones y descuentos exclusivos como agradecimiento por tu solidaridad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modelo de Negocio -->
+        <section id="modelo">
+            <div class="section-header">
+                <h2>Modelo de Negocios (Canvas)</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="business-canvas">
+                <div class="canvas-block">
+                    <h3>💡 Propuesta de Valor & Mercado</h3>
+                    <ul>
+                        <li>Un "negocio redondo" de beneficio mutuo.</li>
+                        <li>Facilidad total: entrega en sitio o a domicilio.</li>
+                        <li><strong>Mercado:</strong> Particulares, Asociaciones y Empresas comprometidas.</li>
+                    </ul>
+                </div>
+                
+                <div class="canvas-block">
+                    <h3>🤝 Socios Clave</h3>
+                    <ul>
+                        <li><strong>Gubernamentales:</strong> SHCP, Secretaría de Bienestar, DIF.</li>
+                        <li><strong>Sociales:</strong> Comunidades locales y voluntariado.</li>
+                        <li><strong>Técnicos:</strong> Equipo de desarrollo y diseño web.</li>
+                    </ul>
+                </div>
+
+                <div class="canvas-block" style="border-bottom: none; padding-bottom: 0;">
+                    <h3>📊 Estructura de Costos</h3>
+                    <ul>
+                        <li>Transporte: <span class="highlight-amount">$30,000 anuales</span></li>
+                        <li>Incentivos: <span class="highlight-amount">$60,000 anuales</span></li>
+                        <li>Marketing: <span class="highlight-amount">$18,000 - $24,000 anuales</span></li>
+                    </ul>
+                </div>
+
+                <div class="canvas-block" style="border-bottom: none; padding-bottom: 0;">
+                    <h3>📈 Fuentes de Ingresos</h3>
+                    <ul>
+                        <li>Donaciones particulares (min. $5,000).</li>
+                        <li>Apoyo de Celebridades (ej. Canelo <span class="highlight-amount">$1M</span>, Maná <span class="highlight-amount">$500k</span>).</li>
+                        <li>Patrocinios Corporativos (<span class="highlight-amount">$150k - $500k</span>).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipo -->
+        <section class="team-section">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2>Las Mentes Detrás del Proyecto</h2>
+                <div class="line" style="background: var(--color-primary);"></div>
+                <p style="margin-top: 1rem; color: #b2bec3; font-size: 1.1rem;">Orgullosamente <strong>Donar es Amar</strong></p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">Juarez Franco Naomi Elizabeth</div>
+                <div class="team-member">Densel Mauricio Alfaro Vergara</div>
+                <div class="team-member">Evolet Alizee Trejo Ornelas</div>
+                <div class="team-member">Mejia Ramos Diana Elizabeth</div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section id="unete" class="cta-wrapper">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1.5rem; color: var(--color-text);">Sé Parte del Cambio</h2>
+            <p style="font-size: 1.2rem; color: #636e72; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">Cada donación cuenta. Únete a nuestra red de voluntarios o ingresa a nuestra página web para realizar tu primer aporte.</p>
+            <button class="btn-main">Donar Ahora</button>
+        </section>
+
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: #b2bec3; font-size: 0.9rem; border-top: 1px solid #eee;">
+        <p>© 2026 Proyecto Fin de la Pobreza - ODS #1. Diseñado con propósito por Donar es Amar.</p>
+    </footer>
+
+</body>
+</html>
